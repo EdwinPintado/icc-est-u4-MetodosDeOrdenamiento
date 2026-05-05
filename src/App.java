@@ -32,13 +32,18 @@ public class App {
 
                         if (validar.equals("true")){
                             boolean insercionAscendente = true;
-                            Insertion inser = new Insertion();
-                            
+                            Insertion sort = new Insertion();
+                            sort.sort(arreglo2, insercionAscendente);
+                            sort.imprimirInsertion(arreglo2);
                             break;
-
+                    
                         } else if (validar.equals("false")) {
                             boolean insercionDescendente = false;
+                            Insertion sort = new Insertion();
+                            sort.sort(arreglo2, insercionDescendente);
+                            sort.imprimirInsertion(arreglo2);
                             break;
+                        
                         }else {
                             System.out.println("\nError en dato o escritura, por favor intentelo de nuevo, recuerde (true/false) solo en minusculas");
                         }
@@ -52,10 +57,8 @@ public class App {
                             Shell sort = new Shell();
                             sort.sort(arreglo2, shellAscendente);
                             sort.imprimirShell(arreglo2);
-
                             break;
-
-
+ 
                         } else if (validar.equals("false")) {
                             boolean shellDescendente = false;
                             Shell sort = new Shell();
@@ -83,4 +86,5 @@ public class App {
 
             } while (opcion != 2);
     }
+    
 }
