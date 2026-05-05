@@ -8,7 +8,7 @@ public class Insertion {
             int aux = array[i];
             int j = i - 1;
 
-            while (j >= 0)            {
+            while (j >= 0){
                 if (asc) {
                     if (array[j] > aux) {
                         array[j + 1] = array[j]; j--;
@@ -23,10 +23,10 @@ public class Insertion {
                     }
                 }
             }
-            array[j+1] = aux;
-            mostrar(array);
         }
     }
+
+    
     public static void mostrar(int[]array){
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i]+" ");
