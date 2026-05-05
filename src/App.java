@@ -3,10 +3,12 @@ import java.util.Scanner;
 import methods.Insertion;
 import methods.Shell;
 
+
 public class App {
     public static void main(String[] args) throws Exception {
         
         int[] arreglo = {12, -7, 25, 0, -15, 33, 19, -22, 5, 48, -3};
+        int[] arreglo2 = arreglo.clone();
 
         Scanner entrada = new Scanner(System.in);
         int opcion;
@@ -27,9 +29,13 @@ public class App {
                     do{
                         System.out.print("\n¿Inserción ascendente?  (true/false): ");
                         validar = entrada.next();
+
                         if (validar.equals("true")){
                             boolean insercionAscendente = true;
+                            Insertion inser = new Insertion();
+                            
                             break;
+
                         } else if (validar.equals("false")) {
                             boolean insercionDescendente = false;
                             break;
@@ -43,15 +49,27 @@ public class App {
                         validar = entrada.next();
                         if (validar.equals("true")){
                             boolean shellAscendente = true;
+                            Shell sort = new Shell();
+                            sort.sort(arreglo2, shellAscendente);
+                            sort.imprimirShell(arreglo2);
+
                             break;
+
+
                         } else if (validar.equals("false")) {
                             boolean shellDescendente = false;
+                            Shell sort = new Shell();
+                            sort.sort(arreglo2, shellDescendente);
+                            sort.imprimirShell(arreglo2);
                             break;
+                        
+
+
                         }else {
                             System.out.println("\nError en dato o escritura, por favor intentelo de nuevo, recuerde (true/false) solo en minusculas");
                         }
                     } while (true);
-                        
+                        break;
 
 
                 case 2: 
@@ -63,7 +81,6 @@ public class App {
                     break;
             }
 
-        } while (opcion != 2);
-        entrada.close();
+            } while (opcion != 2);
     }
 }
