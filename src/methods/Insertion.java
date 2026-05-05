@@ -1,5 +1,5 @@
 package methods;
-import methods.Contabilizar;
+import presentacion.Contabilizar;
 
 
 public class Insertion {

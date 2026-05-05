@@ -1,4 +1,4 @@
-package methods;
+package presentacion;
 
 public class Contabilizar {
     private int comparaciones;
