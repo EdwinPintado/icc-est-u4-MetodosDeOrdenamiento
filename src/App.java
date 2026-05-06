@@ -1,14 +1,15 @@
-import java.util.Arrays;
+
 import java.util.Scanner;
 import methods.Insertion;
 import methods.Shell;
-
+import methods.Impresion;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
         int[] arreglo = {12, -7, 25, 0, -15, 33, 19, -22, 5, 48, -3};
         int[] arreglo2 = arreglo.clone();
+        int[] arreglo3 = arreglo.clone();
 
         Scanner entrada = new Scanner(System.in);
         int opcion;
@@ -54,20 +55,19 @@ public class App {
                         validar = entrada.next();
                         if (validar.equals("true")){
                             boolean shellAscendente = true;
+                            Impresion impreso = new Impresion();
                             Shell sort = new Shell();
-                            sort.sort(arreglo2, shellAscendente);
-                            sort.imprimirShell(arreglo2);
+                            sort.sort(arreglo3, shellAscendente, impreso);
                             break;
  
                         } else if (validar.equals("false")) {
                             boolean shellDescendente = false;
+                        
+                            Impresion impreso = new Impresion();
                             Shell sort = new Shell();
-                            sort.sort(arreglo2, shellDescendente);
-                            sort.imprimirShell(arreglo2);
+                            sort.sort(arreglo3, shellDescendente, impreso);
                             break;
                         
-
-
                         }else {
                             System.out.println("\nError en dato o escritura, por favor intentelo de nuevo, recuerde (true/false) solo en minusculas");
                         }
