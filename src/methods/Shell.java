@@ -1,6 +1,9 @@
 package methods;
 
 public class Shell {
+    int comparaciones =0;
+    int interacciones =0;
+    int cambiosT =0;
 
     public void shellAsc(int[] array, Impresion imprimir) {
         int interac = 1;
@@ -8,28 +11,46 @@ public class Shell {
         for (int gap = array.length/2; gap > 0; gap /= 2) {
 
             boolean cambio = true;
+
             while (cambio) {  
                 cambio = false;
-                System.out.println("I" + interac + "  ");
-                imprimir.imprimir(array);
 
                 for (int i = gap; i < array.length; i++) {
                     int a = array [i-gap];
                     int b = array [i];
-                    boolean cambios = false;
+                    boolean huboCambio = false;
+                    comparaciones++;
+                    System.out.println("I" + interac + "  " + imprimir.arregloLinea(array));
 
                     if (array[i - gap] > array[i]) {
                         int aux = array[i];
                         array[i] = array[i - gap];
                         array[i - gap] = aux;
                         cambio = true;
-                        cambios = true; 
+                        huboCambio = true; 
+                        cambiosT++;
+                        imprimir.impComparacion(gap, i, a, b, huboCambio);
+
+                        System.out.print("\n  ");
+                        for (int k = 0; k < array.length; k++){
+                            if (k == i - gap) System.out.print(imprimir.format(array[i-gap]));
+                            else if (k == i) System.out.print(imprimir.format(array[i]));
+                            else System.out.print("     ");
+                        }
+                    } else {
+                        imprimir.impComparacion(gap, i, a, b, huboCambio);
                     }
-                    imprimir.impComparacion(gap, a, b, cambios);
+                    System.out.println();
+                    
                 }
+                interac++;
+                interacciones++;
             }
-            interac++;
+            
         }
+        System.out.println("\n" + imprimir.indentacion("COMPARACIONES =" + comparaciones, 60));
+        System.out.println(imprimir.indentacion("INTERACCIONES = " + interacciones, 60));
+        System.out.println(imprimir.indentacion("CAMBIOS = " + cambiosT, 60));
     }
 
     public void shellDesc(int[] array, Impresion imprimir) {
@@ -38,28 +59,45 @@ public class Shell {
         for (int gap = array.length/2; gap > 0; gap /= 2) {
 
             boolean cambio = true;
+
             while (cambio) {  
                 cambio = false;
-                System.out.println("I" + interac + "  ");
-                imprimir.imprimir(array);
 
                 for (int i = gap; i < array.length; i++) {
                     int a = array [i-gap];
                     int b = array [i];
-                    boolean cambios = false;
+                    boolean huboCambio = false;
+                    comparaciones++;
+                    System.out.println("I" + interac + "  " + imprimir.arregloLinea(array));
 
                     if (array[i - gap] < array[i]) {
                         int aux = array[i];
                         array[i] = array[i - gap];
                         array[i - gap] = aux;
                         cambio = true;
-                        cambios = true;
+                        huboCambio = true; 
+                        cambiosT++;
+                        imprimir.impComparacion(gap, i, a, b, huboCambio);
+
+                        System.out.print("\n  ");
+                        for (int k = 0; k < array.length; k++){
+                            if (k == i - gap) System.out.print(imprimir.format(array[i-gap]));
+                            else if (k == i) System.out.print(imprimir.format(array[i]));
+                            else System.out.print("     ");
+                        }
+                    } else {
+                        imprimir.impComparacion(gap, i, a, b, huboCambio);
                     }
-                    imprimir.impComparacion(gap, a, b, cambios);
+                    System.out.println();
                 }
+                interac++;
+                interacciones++;
             }
-            interac++;
+            
         }
+        System.out.println("\n" + imprimir.indentacion("COMPARACIONES =" + comparaciones, 60));
+        System.out.println(imprimir.indentacion("INTERACCIONES = " + interacciones, 60));
+        System.out.println(imprimir.indentacion("CAMBIOS = " + cambiosT, 60));
     }
 
 

@@ -2,43 +2,62 @@ package methods;
 
 public class Insertion {
     public void insertionAsc(int[] array){
+        int com = 1;
         
         for(int i = 1; i < array.length; i++){
 
-            int aux = array[i];
-            int j = i - 1;
-
-            while (j >= 0){
-                if (array[j] > aux) {
-                    array[j + 1] = array[j]; 
-                    j--;
-                    
-                } else {
-                    break;
-                }
-            array[j + 1] = aux;
-            }
-        }
-    }  
-
-    public void insertionDesc(int[] array){
-        
-        for(int i = 1; i < array.length; i++){
+            System.out.println("C " + com + "  ");    
+                    imprimirInsertion(array);
             
             int aux = array[i];
             int j = i - 1;
-
+            
+            
             while (j >= 0){
+                boolean cambios = false;
+                if (array[j] > aux) {
+                    array[j + 1] = array[j]; 
+                    j--;
+                    cambios = true;
+                } else {
+                    imprimirInsertion(array);
+                    break;
+                }
+                imprimirInsertion(array);
+            }
+            array[j + 1] = aux;
+            com++;
+            }
+        }
+
+    public void insertionDesc(int[] array){
+        int com = 1;
+        for(int i = 1; i < array.length; i++){
+
+            System.out.println("C " + com + "  ");    
+                 imprimirInsertion(array);
+            
+            int aux = array[i];
+            int j = i - 1;
+           
+            while (j >= 0){
+                boolean cambios = false;
+
                 if (array[j] < aux) {
                     array[j + 1] = array[j]; 
                     j--;
+                    cambios = true;
                 } else {
+                    imprimirInsertion(array);
                     break;
                 }
+                imprimirInsertion(array);
+            }
             array[j + 1] = aux;
+            com++;
             }
         }
-    }
+    
 
     public void imprimirInsertion(int[] array) {
         for (int i : array) {

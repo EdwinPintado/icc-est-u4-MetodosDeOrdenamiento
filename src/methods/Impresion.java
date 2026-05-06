@@ -6,21 +6,21 @@ public class Impresion {
     public void imprimirNum(int numero){
 
         if (numero >= 0){
-            if (numero < 100){
-                System.out.print("   " + numero);
-
-            }else if (numero < 10){
+            if (numero < 10){
                 System.out.print("    " + numero);
+
+            }else if (numero < 100){
+                System.out.print("   " + numero);
 
             }else {
                 System.out.print("  ");
             }
         }else{
-            if (numero > -100){
-                System.out.print("  " + numero);
-
-            }else if (numero > -10){
+            if (numero > -10){
                 System.out.print("   " + numero);
+
+            }else if (numero > -100){
+                System.out.print("  " + numero);
 
             }else {
                 System.out.print(numero);
@@ -35,23 +35,42 @@ public class Impresion {
         System.out.println();
     }
 
-    public void impComparacion(int gap, int a, int b, boolean huboCambio){
-        
-        System.out.print(" ");
+    public String format (int numero){
+        String n = String.valueOf(numero);
 
-        System.out.print("Gap=" + gap);
+        if (numero >= 0){
+            if (numero < 10) return "   " + n;
+            if (numero < 100) return "  " + n;
+            else return "  " + n;
+        }else{ 
+            if (numero > -10) return "  " + n;
+            if (numero > -100) return "   " + n; 
+            else return " "+n;
+        }
+    }
 
-        if (gap < 10 ) System.out.print("  ");
-        else System.out.print("  ");
+    public void impComparacion(int gap,int i,  int a, int b, boolean huboCambio){
 
-        System.out.print(" a=");
-        imprimirNum(a);
+        String linea = "     gap=" + gap + "  a=" +(i-gap) + "  b=" + i + "  [a]=" + format(a) + "  [b]=" + format(b) + "  cambio=" + (huboCambio ? "si":"no");
+        System.out.println(linea);
+    }
 
-        System.out.print(" b=");
-        imprimirNum(b);
 
-        System.out.print("  huboCambio=" + (huboCambio ? "si":"no"));
-        System.out.println();
+    public static String indentacion(String escritura, int ancho){
+        String salida = "";
+        int espaciado = ancho - escritura.length();
+        for(int i = 0; i < espaciado; i++){
+            salida += " ";
+        }
+        return salida + escritura;
+    }
+
+    public String arregloLinea(int[] array){
+        String st = "";
+        for (int n : array){
+            st += format(n);
+        }
+        return st;
     }
             
 }
