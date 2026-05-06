@@ -30,19 +30,19 @@ public class App {
                     do{
                         System.out.print("\n¿Inserción ascendente?  (true/false): ");
                         validar = entrada.next();
-
+                        Insertion sort = new Insertion();
+                        Impresion impreso = new Impresion(); 
+                        
                         if (validar.equals("true")){
                             boolean insercionAscendente = true;
-                            Insertion sort = new Insertion();
-                            sort.sort(arreglo2, insercionAscendente);
-                            sort.imprimirInsertion(arreglo2);
+                            sort.sort(arreglo2, insercionAscendente, impreso);
+                            impreso.imprimir(arreglo2);
                             break;
                     
                         } else if (validar.equals("false")) {
                             boolean insercionDescendente = false;
-                            Insertion sort = new Insertion();
-                            sort.sort(arreglo2, insercionDescendente);
-                            sort.imprimirInsertion(arreglo2);
+                            sort.sort(arreglo2, insercionDescendente, impreso);
+                            impreso.imprimir(arreglo2);
                             break;
                         
                         }else {

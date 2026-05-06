@@ -49,6 +49,12 @@ public class Impresion {
         }
     }
 
+    public void impComparacionImp(int i,  int a, int b, boolean huboCambio){
+
+        String linea = "  a=" +(i) + "  b=" + i + "  [a]=" + format(a) + "  [b]=" + format(b) + "  cambio=" + (huboCambio ? "si":"no");
+        System.out.println(linea);
+    }
+
     public void impComparacion(int gap,int i,  int a, int b, boolean huboCambio){
 
         String linea = "     gap=" + gap + "  a=" +(i-gap) + "  b=" + i + "  [a]=" + format(a) + "  [b]=" + format(b) + "  cambio=" + (huboCambio ? "si":"no");
