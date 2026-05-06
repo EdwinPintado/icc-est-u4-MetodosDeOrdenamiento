@@ -71,6 +71,7 @@ public class Impresion {
             st += format(n);
         }
         return st;
+        
     }
             
 }
